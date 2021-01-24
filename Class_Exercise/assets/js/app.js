@@ -63,7 +63,17 @@ function clearAllTasks() {
 // Filter tasks function definition 
 function filterTasks(e) {
 
-    console.log("Task Filter ...");
+    let filter = (e.target.value).toUpperCase();
+    const li = taskList.getElementsByTagName('li')
+    for (let i = 0; i < li.length; i++) {
+        let txtValue = (li[i].textContent).toUpperCase();
+        if (txtValue.indexOf(filter) > -1) {
+            console.log("hey")
+          li[i].style.display = "block"
+        } else {
+          li[i].style.display = "none";
+        }
+      }
 
 }
 function removeTask(e) {
