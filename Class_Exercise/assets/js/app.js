@@ -4,6 +4,8 @@ const form = document.querySelector('#task-form');             //The form at the
 
 const filter = document.querySelector('#filter');                      //the task filter text field
 
+const sorting = document.querySelector('#sorting'); 
+
 const taskList = document.querySelector('.collection');          //The ul
 
 const clearBtn = document.querySelector('.clear-tasks');      //the all task clear button
@@ -19,6 +21,9 @@ filter.addEventListener('keyup', filterTasks);
 
 taskList.addEventListener('click', removeTask);
 
+// Sort Task
+sorting.addEventListener("change", order);
+let isSorted = true;
 
 function addNewTask(e) {
 
@@ -44,7 +49,8 @@ function addNewTask(e) {
        // Append link to li
        li.appendChild(link);
        // Append to ul 
-       taskList.appendChild(li);
+    if(!isSorted) taskList.insertBefore(li, taskList.children[0])
+    else taskList.appendChild(li);
        taskInput.value= "";
    
        e.preventDefault(); //disable form submission
@@ -64,16 +70,15 @@ function clearAllTasks() {
 function filterTasks(e) {
 
     let filter = (e.target.value).toUpperCase();
-    const li = taskList.getElementsByTagName('li')
-    for (let i = 0; i < li.length; i++) {
-        let txtValue = (li[i].textContent).toUpperCase();
+    const li = taskList.querySelectorAll('li')
+    li.forEach(item => {
+        let txtValue = (item.textContent).toUpperCase();
         if (txtValue.indexOf(filter) > -1) {
-            console.log("hey")
-          li[i].style.display = "block"
+            item.style.display = "block"
         } else {
-          li[i].style.display = "none";
+            item.style.display = "none";
         }
-      }
+    });
 
 }
 function removeTask(e) {
@@ -98,4 +103,12 @@ reloadIcon.addEventListener('click', reloadPage);
 function reloadPage() {
     //using the reload fun on location object 
     location.reload();
+}
+
+function order(e){
+    let i = taskList.childNodes.length
+    while(i--){
+        taskList.appendChild(taskList.childNodes[i])
+    }
+    isSorted = !isSorted;
 }
