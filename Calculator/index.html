@@ -1,26 +1,80 @@
-!<!DOCTYPE html>
+!
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>Javascript Demo on Console OutPut !!!</h1>
 
-    <h3>The Program Does the Following : </h3>
-    <ul>
-        <li>Take Input From User </li>
-        <li>Display User Data on the Console </li>
-    </ul>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
-        <script src="./assets/js/calculator.js" async defer></script>
-    </body>
+</head>
+
+<body>
+    <div class="row bg-light text-center m-3">
+        <div class="col-9 ml-4">
+            <label for="input" class="p-4">Enter your input here</label>
+            <input type="number" name="input" id="input" class="p-3">
+        </div>
+    </div>
+    <div class="row bg-light ml-2">
+        
+        <div class="col-md-3 mt-3">
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-warning btn-lg" name="c">C</button>
+                        
+                        <button type="button" class="btn btn-warning btn-lg" name="=">=</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-2">
+                        <button type="button" class="btn btn-primary btn-lg" name="+">+</button>
+                        <button type="button" class="btn btn-primary btn-lg" name="-">-</button>
+                        <button type="button" class="btn btn-primary btn-lg" name="*">*</button>
+                        <button type="button" class="btn btn-primary btn-lg" name="/">/</button>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 mt-2">
+                        <button type="button" class="btn btn-primary btn-lg" name="%">%</button>
+                        <button type="button" class="btn btn-primary btn-lg" name="//">//</button>
+                        <button type="button" class="btn btn-primary btn-lg" name="pow">^2</button>
+                        <button type="button" class="btn btn-primary btn-lg" name="sqrt">Sqrt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="calculation">Calculation</label>
+            <textarea  class="p-3 mt-5" name="calculation" id="calculation" cols="40" rows="5" readonly></textarea>
+        </div>
+        <div class="col-md-3">
+            <div class="row mt-5">
+            <h1 class="p-3">=</h1>
+            <input type="text" name="result" id="result" readonly>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="./assets/js/calculator.js" async defer></script>
+</body>
+
 </html>
