@@ -22,7 +22,7 @@ filter.addEventListener('keyup', filterTasks);
 taskList.addEventListener('click', removeTask);
 
 // Sort Task
-sorting.addEventListener("change", order);
+sorting.addEventListener("change", orderTasksByDate);
 let isSorted = true;
 
 function addNewTask(e) {
@@ -49,6 +49,8 @@ function addNewTask(e) {
        // Append link to li
        li.appendChild(link);
        // Append to ul 
+       li.setAttribute('date-created', Date.now());
+            
     if(!isSorted) taskList.insertBefore(li, taskList.children[0])
     else taskList.appendChild(li);
        taskInput.value= "";
@@ -105,10 +107,25 @@ function reloadPage() {
     location.reload();
 }
 
-function order(e){
+function orderTasksNaturally(e){
     let i = taskList.childNodes.length
     while(i--){
         taskList.appendChild(taskList.childNodes[i])
     }
     isSorted = !isSorted;
+}
+
+function orderTasksByDate(e){
+    isSorted = !isSorted;
+    let TaskListArray = Array.prototype.slice.call( taskList.children, 0 );
+    let SortedList;
+    if(isSorted) SortedList = TaskListArray.sort((a,b) => a.getAttribute('date-created') - b.getAttribute('date-created'))
+    else{
+        SortedList = TaskListArray.sort((a,b) => b.getAttribute('date-created') - a.getAttribute('date-created'))
+    }
+    
+    taskList.innerHTML = ""
+    SortedList.forEach(item => {
+        taskList.appendChild(item)
+    })
 }
